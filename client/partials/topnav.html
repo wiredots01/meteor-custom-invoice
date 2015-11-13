@@ -1,0 +1,19 @@
+<template name="topNav">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Invoice</a>
+		</div>
+		<div class="pull-right login" >
+
+			{{> loginButtons align="right"}}
+				
+		
+		</div>
+		<div class="pull-right login" >
+		{{#if currentUser}}
+					<a href="/dashboard" >Dashboard</a>
+				{{/if}}
+		</div>
+		
+	</nav>
+</template>

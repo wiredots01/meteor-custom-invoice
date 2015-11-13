@@ -1,0 +1,136 @@
+<template name="NewInvoice">
+	<div class="container">
+    <div  align="center">
+      <h1>Custom Invoice</h1>
+    </div>
+    <form id="insertInvoiceForm" name="insertInvoiceForm" >
+
+      <div class="well">
+          <div class="row">
+              <div class="col-md-6">
+                  PaperDodo Inc<br />
+                  905-51 East Liberty Street, Toronto<br />
+                  1-888-508-7276
+              </div>
+              
+          </div>
+      </div>
+
+      <h4>Client Details</h4>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="form-horizontal">
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Name</label>
+                      <div class="col-sm-7">
+                          <input type="text" name="name" id="name" class="form-control" />
+                      </div>
+                      
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Address</label>
+                      <div class="col-sm-7">
+                          <input type="text" name="address" id="address" class="form-control" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Phone</label>
+                      <div class="col-sm-7">
+                          <input type="text" name="phone" id="phone" class="form-control" />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">Email</label>
+                      <div class="col-sm-7">
+                          <input type="text" name="email" id="email" class="form-control" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <h4>Job Details</h4>
+      <div class="form-inline">
+          <div class="form-group">
+              <select id="jobName" name="jobName" class="form-control" style="width: 140px">
+                  <option value="Repair">Repair</option>
+                  <option value="Inspection">Inspection</option>
+                  <option value="Code">Code</option>
+              </select>
+              <label class="control-label">Cost</label>
+              <input id="jobCost" name="jobCost" class="form-control" placeholder="125" value="" size="3" />
+              <label class="control-label">Units</label>
+              <input id="jobUnit" name="jobUnit" class="form-control" placeholder="1" value="" size="3" />
+              <button type="button" class="btn btn-primary addJob" >Add Job</button>
+          </div>
+      </div>
+      <p></p>
+      <div class="form-inline">
+          <div class="form-group">
+              <select id="taxName" name="taxName" class="form-control" style="width: 140px">
+                  <option value="HST">HST</option>
+                  <option value="VAT">VAT</option>
+              </select>
+              <button type="button" class="btn btn-primary addTax" >Add Tax</button>
+          </div>
+      </div>
+      <p></p>
+      <div class="row">
+          <div class="col-md-6">
+              <div id="field-placeholder" class="form-horizontal"></div>
+          </div>
+      </div>
+      <p></p>
+      <table class="table table-bordered table-condensed">
+          <thead>
+              <tr>
+                  <th></th>
+                  <th>Job Name</th>
+                  <th>Unit Cost</th>
+                  <th>Units</th>
+                  <th>Price</th>
+              </tr>
+          </thead>
+          <tbody id="job-placeholder"></tbody>
+          <tbody id="tax-placeholder"></tbody>
+          <tbody>
+              {{#each jobs}}
+              <tr>
+                  <td>Amount Paid</td>
+                  <td>{{name}}</td>
+                  <td>{{cost}}</td>
+                  <td>{{unit}}</td>
+                  <td>{{unitCost}}</td>
+              </tr>
+              {{/each}}
+              {{#each taxes}}
+              <tr>
+                  <td colspan="3">Tax</td>
+                  
+                  <td>{{name}}</td>
+                  <td>{{percentage}}</td>
+              </tr>
+              {{/each}}
+              <tr>
+                  <td colspan="4"><strong>TOTAL</strong></td>
+                  
+                  <td>{{subTotal}}</td>
+              </tr>
+          </tbody>
+      </table>
+
+      <div class="form-group">
+          <textarea class="form-control" id="note" name="note" placeholder="Note"></textarea>
+      </div>
+      <p></p>
+      <div class="row" id="customFields">
+      </div>
+      <p></p>
+      <p align="right">
+          <button type="submit" class="btn btn-primary">Add Invoice</button>
+          <a href="/invoices" class="btn btn-danger">Cancel</a>
+      </p>
+
+    </form>
+  </div>
+</template>

@@ -1,0 +1,38 @@
+<template name="Invoices">
+	<div class="panel panel-default">
+		  <div class="panel-heading">
+		  	<div class="row">
+		  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		  			<h3 class="panel-title">Invoices</h3>
+		  		</div>
+		  		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		  			<a href="/new-invoice" class="pull-right btn btn-success btn-xs">New</a>
+		  		</div>
+		  	</div>
+		  </div>
+		  <div class="panel-body" align="center">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<table class="table table-striped table-hover">
+					  	<thead>
+					  		<tr>
+					  			<th>Info</th>
+					  			<th>Jobs</th>
+					  			<th>Tax</th>
+					  			<th>Created</th>
+					  			<th>View</th>
+					  		</tr>
+					  	</thead>
+					  	<tbody>
+					  		{{# each invoices}}
+					  			{{> InvoiceList}}
+					  		{{ /each }}
+					  	</tbody>
+					  </table>
+						
+					</div>
+				</div>
+		  </div>
+	</div>
+	
+</template>
